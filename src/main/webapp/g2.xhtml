@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:o="http://omnifaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<f:ajax>
+
+			<o:resourceInclude path="/hello2" />
+		</f:ajax>
+
+
+		<h2>Rating: #{ratingControler.getRating("mineSweeper")}</h2>
+
+		<!-- <o:resourceInclude path="/RatingServlet" /> -->
+		<div>
+
+			<o:resourceInclude path="/RatingServlet" />
+
+		</div>
+
+
+
+		<p:dataTable var="car" value="#{dtBasicView.scoresPuzzle}">
+			<p:column headerText="Id">
+				<h:outputText value="#{car.id}" />
+			</p:column>
+
+			<p:column headerText="Player name">
+				<h:outputText value="#{car.user.name}" />
+			</p:column>
+
+			<p:column headerText="Score">
+				<h:outputText value="#{car.score}" />
+			</p:column>
+
+			<p:column headerText="Game">
+				<h:outputText value="#{car.game}" />
+			</p:column>
+		</p:dataTable>
+
+		<h2>Coments</h2>
+		<br />
+		<div>
+			<ui:repeat var="coment"
+				value='#{comentarControler.findAllOrderedByName("mineSweeper")}'>
+				<rich:panel>
+					<h:outputLabel value="#{coment.userName} :  #{coment.coment}" />
+				</rich:panel>
+				<br />
+			</ui:repeat>
+			<o:resourceInclude path="/ComentarServlet" />
+		</div>
+
+
+
+
+
+	</ui:define>
+</ui:composition>

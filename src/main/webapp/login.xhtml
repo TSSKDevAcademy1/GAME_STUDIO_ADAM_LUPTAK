@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:panelGrid columns="2" cellpadding="10" style="margin-bottom: 20px">
+			<h1>Welcome to login page</h1>
+		</h:panelGrid>
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="10">
+
+				<p:outputLabel style="padding-right: 18px;margin-right: 50px">Name</p:outputLabel>
+				<p:inputText style="margin-bottom: 10px" value="#{userLogin.name}"></p:inputText>
+
+
+				<p:outputLabel style="margin-right: 50px">Password</p:outputLabel>
+				<p:password value="#{userLogin.password}"></p:password>
+
+			</h:panelGrid>
+			<h:panelGrid columns="3" cellpadding="10">
+				<h:commandButton action="#{userLogin.validatePass()}" styleClass="mojButton" style="border-radius:15px;" 
+					value="Submit" />
+				
+				<h:outputLink outcome="main.jsf" value="registerNew.jsf"
+					style="margin-left: 70px;">Register</h:outputLink>
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

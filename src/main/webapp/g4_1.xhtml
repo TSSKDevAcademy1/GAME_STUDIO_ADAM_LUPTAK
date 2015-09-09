@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:o="http://omnifaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet library="css" name="bootstrap.css" />
+		<div class="text-center">
+			<h:graphicImage value="resources/gfx/guesNumber.jpg" />
+			<h:form>
+
+				<h2>
+					<h:outputText id="result" value="#{userNumberBean.response}" />
+				</h2>
+				<br />
+				<h:commandButton id="back" class="btn btn-success" value="Back"
+					action="g4.jsf" />
+			</h:form>
+
+			<h:outputLink id="link1"
+				value="http://localhost:8080/games1/main.jsf">
+				<h:outputText value="Main page" />
+			</h:outputLink>
+		</div>
+	</ui:define>
+</ui:composition>

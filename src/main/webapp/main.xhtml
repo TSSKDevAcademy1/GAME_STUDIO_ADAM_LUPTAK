@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h3>Choose your game</h3>
+		<div>
+			<p:imageSwitch effect="fade" slideshowSpeed="500" speed="1000">
+
+				<ui:repeat value="#{imagesView.images}" var="image"
+					id="fadeEffectImages">
+					<h:outputLink
+						value='http://localhost:8080/games1/#{imagesView.getLink(image)}'>
+						<p:graphicImage name="/gfx/slideShow/#{image}" id="image" />
+					</h:outputLink>
+				</ui:repeat>
+			</p:imageSwitch>
+		</div>
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

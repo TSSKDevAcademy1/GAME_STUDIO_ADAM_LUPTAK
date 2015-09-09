@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+
+    Copyright (c) 2014 Oracle and/or its affiliates. All rights reserved.
+
+    You may not modify, use, reproduce, or distribute this software except in
+    compliance with  the terms of the License at:
+    http://java.net/projects/javaeetutorial/pages/BerkeleyLicense
+<ui:repeat value="#{imagesView.images}" var="image"
+			id="fadeEffectImages">
+			<p:graphicImage name="resources/gfx/slideShow/#{image}" id="image" />
+	</ui:repeat>
+	
+	
+	<img src="resources/gfx/slideShow/slide1.jpg" />
+          <img src="resources/gfx/slideShow/slide2.jpg" />
+          <img src="resources/gfx/slideShow/slide3.jpg" />
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+
+	<title>Guess Number Facelets Application</title>
+
+</h:head>
+<h:body>
+
+
+
+	<p:dataTable var="car" value="#{dtBasicView.scores}">
+		<p:column headerText="Id">
+			<h:outputText value="#{car.id}" />
+		</p:column>
+
+		<p:column headerText="Year">
+			<h:outputText value="#{car.user.name}" />
+		</p:column>
+
+		<p:column headerText="Brand">
+			<h:outputText value="#{car.score}" />
+		</p:column>
+
+		<p:column headerText="Color">
+			<h:outputText value="#{car.game}" />
+		</p:column>
+	</p:dataTable>
+
+</h:body>
+</html>

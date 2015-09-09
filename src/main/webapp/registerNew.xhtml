@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+
+		<div>
+			<h:panelGrid columns="2" cellpadding="10" style="margin-bottom: 20px">
+				<h1>Welcome to register page</h1>
+			</h:panelGrid>
+
+
+			<h:form id="reg" >
+
+
+				<h:panelGrid columns="3" columnClasses="titleCell" >
+					<h:outputLabel for="name" value="Name:"  styleClass="label"/>
+					<h:inputText id="name" value="#{newUser.name}" styleClass="label1" />
+					<h:message for="name" errorClass="invalid" />
+
+					<h:outputLabel for="pass" value="Password:"  styleClass="label"/>
+					<h:inputText id="pass" value="#{newUser.password}" styleClass="label1"/>
+					<h:message for="pass" errorClass="invalid" />
+
+					<h:outputLabel for="email" value="Email:" styleClass="label" />
+					<h:inputText id="email" value="#{newUser.email}"  styleClass="label1"/>
+					<h:message for="email" errorClass="invalid" />
+
+					<h:outputLabel for="age" value="Age:"  styleClass="label"/>
+					<h:inputText id="age" value="#{newUser.age}"  styleClass="label1"/>
+					<h:message for="age" errorClass="invalid" />
+
+					<h:outputLabel for="country" value="Country" styleClass="label"/>
+					<h:selectOneMenu id="country" value="#{newUser.country}" style="width: 12.2em;"  styleClass="label1"
+						required="true" label="Country">
+						<f:selectItem itemValue="#{null}" itemLabel="-- Select country --"
+							noSelectionOption="true" />
+						<f:selectItems value="#{countryRepository.countryNames}" />
+					</h:selectOneMenu>
+					<h:message for="country" errorClass="invalid"  />
+
+
+					<h:outputLabel for="age" value=" Birthdate:"  styleClass="label" />
+					<rich:calendar id="date" value="#{newUser.birthday}" 
+						datePattern="d.M.yyyy" />
+					<h:message for="date" errorClass="invalid" />
+
+
+
+				</h:panelGrid>
+
+				<p>
+					<h:panelGrid columns="3">
+						<h:commandButton id="register"
+							action="#{userController.register()}" value="Register"
+							styleClass="mojButton" style="border-radius:15px;" />
+						<h:messages styleClass="messages" errorClass="invalid"
+							infoClass="valid" warnClass="warning" globalOnly="true" />
+					</h:panelGrid>
+				</p>
+			</h:form>
+
+		</div>
+
+	</ui:define>
+</ui:composition>
